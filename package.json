@@ -1,0 +1,17 @@
+{
+  "name": "MT",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon app.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.2",
+    "mariasql": "^0.2.6"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
