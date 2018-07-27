@@ -8,6 +8,7 @@ import carousel3 from '../assets/mt3.jpg';
 import './css/App.css';
 
 import { Navbar, Nav, NavItem, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 const Home = () => (
     <div className="App">
@@ -20,17 +21,17 @@ const Home = () => (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href ="/" className="Nav-Title">BobaBills</a>
+            <Link to="/" className="Nav-Title">BobaBills</Link>
           </Navbar.Brand>
           <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav className="Nav" pullRight>
-            <NavItem className="NavItem1" eventKey={1} href="/login" >
-              Login
+            <NavItem className="NavItem1" eventKey={1}>
+              <Link style={{color:"Black"}} to="/login">Login</Link>
             </NavItem>
-            <NavItem className="NavItem2" eventKey={2} href="/register">
-              Registration
+            <NavItem className="NavItem2" eventKey={2}>
+              <Link style={{color:"Black"}} to="/register">Registration</Link>
             </NavItem>
           </Nav>
         </Navbar.Collapse>
