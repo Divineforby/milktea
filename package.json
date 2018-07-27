@@ -9,7 +9,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.2",
-    "mariasql": "^0.2.6"
+    "mariasql": "^0.2.6",
+    "react-bootstrap": "^0.32.1"
   },
   "devDependencies": {
     "concurrently": "^3.5.0"

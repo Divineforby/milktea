@@ -1,39 +1,22 @@
 import React, { Component } from 'react';
 
-import logo from './logo.svg';
-
-import './App.css';
+import Register from './views/Register';
+import Login from './views/Login';
+import Home from './views/Home';
+import Error from './views/Error';
+import {Route, Switch} from 'react-router-dom'
 
 class App extends Component {
-  state = {
-    response: ''
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async () => {
-    const response = await fetch('/login');
-    const body = await response.json();
-
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
-      </div>
+        <div>
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/Register" component={Register}/>
+            <Route path="/" component={Error}/>
+        </Switch>
+        </div>
     );
   }
 }

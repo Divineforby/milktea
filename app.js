@@ -18,18 +18,19 @@ app.use(function(req, res, next) {
 });
 
 // SERVING STATIC FILES
-app.use('/static', express.static(__dirname + '/client/public'));
+app.use('/', express.static(__dirname + '/client/build'));
 
 // SERVES THE INDEX PAGE
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/public/index.html');
+app.get('/*', (req, res) => {
+  res.sendFile(__dirname + '/client/build/index.html');
 });
 
 // ROUTING
-var login = require('./routes/login'); app.use('/login', login);
-var reg = require('./routes/register'); app.use('/register', reg);
-var prof = require('./routes/profile'); app.use('/profile', prof);
-var transaction = require('./routes/transaction'); app.use('/transaction', prof);
+var login = require(__dirname + '/routes/login'); app.use('/login', login);
+var reg = require(__dirname + '/routes/register'); app.use('/register', reg);
+var prof = require(__dirname + '/routes/profile'); app.use('/profile', prof);
+var transaction = require(__dirname + '/routes/transaction'); app.use('/transaction', transaction);
+var friendship = require(__dirname + '/routes/friendship'); app.use('/friendship', friendship);
 
 app.listen(port, '0.0.0.0', function() {
   console.log('App is listening on port ' + port);

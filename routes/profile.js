@@ -5,7 +5,24 @@ var router = express.Router();
 
 // Returns the profile for the user
 router.get('/:username', (req, res) => {
-  res.send(req.params.id);
+  var user = req.param.username;
+  var body = {
+    user: user
+  }
+
+  // Query the entire profile for the user
+  db.query("SELECT * FROM accounts WHERE username = :username",
+            body,
+            (err, row) => {
+              if(err) {
+                console.log(err);
+                res.send(err);
+              }
+              else {
+                console.log(row);
+                res.send(row);
+              }
+            });
 });
 
 module.exports = router;
